@@ -9,4 +9,14 @@ for(let i = 0; i < buttons.length; i++) {
 
 function playGame(e) {
     console.log(e.target.innerText);
+    let computerSelection = Math.random();
+    
+    if(computerSelection < 0.34) {
+        computerSelection = "Rock";
+    } else if (computerSelection <= 0.67) {
+        computerSelection = "Paper";
+    } else {
+        computerSelection = "Scissors";
+    }
+    console.log(computerSelection)
 }
