@@ -8,7 +8,7 @@ for(let i = 0; i < buttons.length; i++) {
 }
 
 function playGame(e) {
-    console.log(e.target.innerText);
+    let playerSelection = e.target.innerText;
     let computerSelection = Math.random();
     
     if(computerSelection < 0.34) {
@@ -18,5 +18,27 @@ function playGame(e) {
     } else {
         computerSelection = "Scissors";
     }
-    console.log(computerSelection)
+    console.log(playerSelection, computerSelection);
+    let result = checkWinner(playerSelection, computerSelection);
+    console.log(result);
+}
+
+function checkWinner(pl, co) {
+    if(pl === co) {
+        return "Draw";
+    }
+    if(pl === "Rock") {
+        if(co === "Paper") {
+            return "Computer";
+        } else {
+            return "Player";
+        }
+    }
+    if(pl === "Paper") {
+        if(co === "Scissors") {
+            return "Computer";
+        } else {
+            return "Player";
+        }
+    }
 }
