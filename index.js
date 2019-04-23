@@ -18,9 +18,8 @@ function playGame(e) {
     } else {
         computerSelection = "Scissors";
     }
-    console.log(playerSelection, computerSelection);
+  
     let result = checkWinner(playerSelection, computerSelection);
-    console.log(result);
 
     if(result == "Player") {
         result += " wins!";
@@ -31,8 +30,9 @@ function playGame(e) {
     } else {
         result += " results in a tie match";
     }
-    score.innerHTML = "Player 1["+winner[0]+"] Computer["+winner[1]+"]";
-    messager(playerSelection + " vs " + computerSelection + "</br>" + result)
+
+    score.innerHTML = "<small>Player 1</small>["+winner[0]+"] <small>Computer</small>["+winner[1]+"]";
+    messager(playerSelection + " vs " + computerSelection + "</br><b>" + result + "</b>")
 }
 
 function messager(mes) {
@@ -40,9 +40,11 @@ function messager(mes) {
 }
 
 function checkWinner(pl, co) {
+
     if(pl === co) {
         return "Draw";
     }
+
     if(pl === "Rock") {
         if(co === "Paper") {
             return "Computer";
@@ -50,8 +52,17 @@ function checkWinner(pl, co) {
             return "Player";
         }
     }
+
     if(pl === "Paper") {
         if(co === "Scissors") {
+            return "Computer";
+        } else {
+            return "Player";
+        }
+    }
+    
+    if(pl === "Scissors") {
+        if(co === "Rock") {
             return "Computer";
         } else {
             return "Player";
