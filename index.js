@@ -21,15 +21,22 @@ function playGame(e) {
     console.log(playerSelection, computerSelection);
     let result = checkWinner(playerSelection, computerSelection);
     console.log(result);
-    
+
     if(result == "Player") {
-        result += "wins!";
+        result += " wins!";
         winner[0]++;
     } else if(result == "Computer") {
-        result += "wins!";
+        result += " wins!";
         winner[1]++;
+    } else {
+        result += " results in a tie match";
     }
     score.innerHTML = "Player 1["+winner[0]+"] Computer["+winner[1]+"]";
+    messager(playerSelection + " vs " + computerSelection + "</br>" + result)
+}
+
+function messager(mes) {
+    message.innerHTML = mes;
 }
 
 function checkWinner(pl, co) {
